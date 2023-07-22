@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+<title xmlns="http://www.w3.org/1999/html">SHOW EMPLOYEE</title>
+{% endblock %}
+{% block content %}
+
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">EMPLOYEE ID</th>
+        <th scope="col">EMPLOYEE NAME</th>
+        <th scope="col">SALARY</th>
+        <th scope="col">CITY</th>
+        <th scope="col">COMPANY NAME</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody class="table-light">
+    {% for ord in obj %}
+    <tr>
+        <td>{{ord.e_id}}</td>
+        <td>{{ord.e_name}}</td>
+        <td>{{ord.salary}}</td>
+        <td>{{ord.city}}</td>
+        <td>{{ord.c_name}}</td>
+        <td><button class="btn btn-warning"><a href="{% url 'updateemployee_url' ord.id %}">UPDATE</a></button></td>
+        <td><button class="btn btn-danger"><a href="{% url 'deleteemployee_url' ord.id %}">DELETE</a></button></td>
+    </tr>
+
+{% endfor %}
+</tbody>
+</table>
+    {% endblock %}
+
